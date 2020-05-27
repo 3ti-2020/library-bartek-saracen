@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 27 Maj 2020, 18:33
+-- Czas generowania: 27 Maj 2020, 20:42
 -- Wersja serwera: 10.1.38-MariaDB
 -- Wersja PHP: 7.3.2
 
@@ -71,24 +71,24 @@ INSERT INTO `spis` (`id_spis`, `id_autor`, `id_tytul`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `tytuły`
+-- Struktura tabeli dla tabeli `tytuly`
 --
 
-CREATE TABLE `tytuły` (
+CREATE TABLE `tytuly` (
   `id_tytul` int(10) NOT NULL,
   `tytul` varchar(40) COLLATE utf8_polish_ci NOT NULL,
   `ISBN` bigint(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `tytuły`
+-- Zrzut danych tabeli `tytuly`
 --
 
-INSERT INTO `tytuły` (`id_tytul`, `tytul`, `ISBN`) VALUES
+INSERT INTO `tytuly` (`id_tytul`, `tytul`, `ISBN`) VALUES
 (1, 'Wesele', 9788304010468),
-(2, 'Lalka', 9788373271869),
+(2, 'Lalka', 9781983748394),
 (3, 'Zbrodnia i kara', 9788371530293),
-(4, 'Ludzie bezdomni', 9788373272361),
+(4, 'Ludzie bezdomni', 9788305127837),
 (5, 'Jądro ciemności', 9788324018079);
 
 --
@@ -110,9 +110,9 @@ ALTER TABLE `spis`
   ADD KEY `tytuł` (`id_tytul`) USING BTREE;
 
 --
--- Indeksy dla tabeli `tytuły`
+-- Indeksy dla tabeli `tytuly`
 --
-ALTER TABLE `tytuły`
+ALTER TABLE `tytuly`
   ADD PRIMARY KEY (`id_tytul`);
 
 --
@@ -132,10 +132,10 @@ ALTER TABLE `spis`
   MODIFY `id_spis` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT dla tabeli `tytuły`
+-- AUTO_INCREMENT dla tabeli `tytuly`
 --
-ALTER TABLE `tytuły`
-  MODIFY `id_tytul` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `tytuly`
+  MODIFY `id_tytul` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ograniczenia dla zrzutów tabel
@@ -146,7 +146,7 @@ ALTER TABLE `tytuły`
 --
 ALTER TABLE `spis`
   ADD CONSTRAINT `autor` FOREIGN KEY (`id_autor`) REFERENCES `autorzy` (`id_autor`),
-  ADD CONSTRAINT `tytuł` FOREIGN KEY (`id_tytul`) REFERENCES `tytuły` (`id_tytul`);
+  ADD CONSTRAINT `tytuł` FOREIGN KEY (`id_tytul`) REFERENCES `tytuly` (`id_tytul`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
