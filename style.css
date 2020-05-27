@@ -1,3 +1,27 @@
-body {
-color: black;
+* {
+    margin: 0;
+    padding: 0;
+}
+.top {
+    grid-area: a;
+    background: royalblue;
+}
+main {
+    grid-area: b;
+    background: sienna;
+}
+footer {
+    grid-area: c;
+    background: seagreen;
+}
+.container {
+    display: grid;
+    height: 100vh;
+    width: auto;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: 
+    "a a"
+    "b c"
+    ;
 }
